@@ -28,7 +28,7 @@
   - name: copy iptables if-up script
     action: copy src=iptables dest=/etc/network/if-up.d/iptables
   - name: restore iptables config
-    action: shell iptables-restore < /etc/firewall.conf
+    action: shell iptables-restore -! < /etc/firewall.conf
   - name: configure on forwarding
     action: lineinfile dest=/etc/sysctl.conf regexp=^net.ipv4.ip_forward line=net.ipv4.ip_forward=1
   - name: turn on forwarding
