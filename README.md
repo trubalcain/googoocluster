@@ -1,7 +1,4 @@
-# googoocluster
-RaspberryPI SLURM  Ansible cluster playbook
-
-Ansible playbook for Raspberry Pi Cluster
+Ansible playbook for building a Raspberry Pi Cluster for use with Matlab
 ===========================================
 --------------------
 
@@ -24,16 +21,13 @@ libraries and services:
 * Shared filesystem: NFS
 * Time server: NTP
 * DNS: dnsmasq
-* Performance montioring: Ganglia
+* Performance monitoring: Ganglia
 
-**Important**: the notes below describe roughly what I did, but there was a lot of 
-trial-and-error and I didn't note all the blind alleys.  I haven't reproduced
-with this set of instructions yet, so you might have to troubleshoot a bit.
 
 Physical setup and OS
 ---------------------
 
-1. Get 2 or more Raspberry Pi Model B's. One will be the head node, the others 
+1. Get 2 or more Raspberry Pi II Model B+'s. One will be the head node, the others 
 will be compute nodes. 
 1. Download the most recent [Raspbian Linux](http://www.raspbian.org/) and copy
 the raw image onto an SD card. (I used the "dd" command on a Linux laptop to do
@@ -70,7 +64,7 @@ the static address 192.168.28.1 and eth1 to DHCP, so I could have the head node 
 to the outside world when connected to my home router. I also changed the head node
 hostname to "googoocluster" at this point.
 1. SSH into each "compute" Raspberry Pi and configure a static IP on eth0. Change the 
-hostname to something like "rpi01", "rpi02", etc. Then reboot.
+hostname to something like "rpi00", "rpi01", "rpi02" etc. Then reboot.
 1. Create an /etc/hosts file on the head node to list the compute node names and IPs.
 
 At this point it's also a good idea to set up passwordless SSH with keys from your laptop 
@@ -98,7 +92,7 @@ Ansible configuration of compute nodes
 The compute nodes are on a private network, so you have to configure them from the 
 head node.
 
-SSH into the head node as "pi" and confirm that this repo is present as "ansible-pi-cluster".
+SSH into the head node as "pi" and confirm that this repo is present as "googoocluster".
 Then you should be able to just run
 
     ansible-playbook -i hosts.pi computes.yml
