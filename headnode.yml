@@ -2,7 +2,7 @@
 - hosts: headnode
   user: pi
   become: yes
-  accelerate: true
+  become_method: sudo
   roles:
   - common
   - headnode

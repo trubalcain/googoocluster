@@ -2,7 +2,7 @@
 - hosts: computes 
   user: pi
   become: yes
-  accelerate: true
+  become_methond: sudo
   roles:
   - common
   - network_client
