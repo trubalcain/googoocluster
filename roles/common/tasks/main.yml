@@ -5,16 +5,16 @@
   - name: update apt-cache
     action: command apt-get -y update
 
-   - name: install python-apt
+  - name: install python-apt
     action: command apt-get -y install python-apt
 
-   - name: install pip
+  - name: install pip
     action: easy_install name=pip
 
-   - name: install common packages
+  - name: install common packages
     action: apt pkg={{item}} state=installed
     with_items:
-	- python-dev
+    - python-dev
     - python-setuptools
     - openmpi-bin
     - openmpi-doc
