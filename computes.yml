@@ -1,12 +1,8 @@
 ---
 - hosts: computes 
   user: pi
-  sudo: yes
-  roles:
-  - fireball
-
-- hosts: computes
-  connection: fireball
+  become: yes
+  accelerate: true
   roles:
   - common
   - network_client
