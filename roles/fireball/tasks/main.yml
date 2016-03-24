@@ -1,5 +1,5 @@
 ---
-  - name: point dns at google
+  - name: point dns at engineering dns server
     action: template src=resolv.conf.j2 dest=/etc/resolv.conf
 
   - name: update apt-cache
