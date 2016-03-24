@@ -1,0 +1,8 @@
+[headnode]
+192.168.28.1
+[computes]
+rpi00
+rpi01
+rpi02
+rpi03
+rpi04
