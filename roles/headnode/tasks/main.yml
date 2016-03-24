@@ -1,15 +1,15 @@
 ---
   - name: install headnode packages from apt
-  - apt: name={{item}} state=installed
+    apt: name={{item}} state=installed
     with_items:
-    - git
-    - screen
-    - environment-modules
-    - gfortran
-    - dnsmasq
-    - dnsutils
-    - nfs-kernel-server
-    - nfs-common
+      - git
+      - screen
+      - environment-modules
+      - gfortran
+      - dnsmasq
+      - dnsutils
+      - nfs-kernel-server
+      - nfs-common
 
   - name: install ansible
     action: pip name=ansible state=latest 

@@ -8,11 +8,11 @@
     action: service name=munge state=started
 
   - name: install slurm packages
-  - apt: name={{item}} state=installed
+    apt: name={{item}} state=installed
     with_items:
-    - slurm-llnl
-    - slurm-llnl-doc
-    - slurm-llnl-torque
+      - slurm-llnl
+      - slurm-llnl-doc
+      - slurm-llnl-torque
 
 
   - name: touch slurm log file

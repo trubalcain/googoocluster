@@ -1,10 +1,10 @@
 ---
   - name: install packages for gmetad
-  - apt: name=$item state=installed
+    apt: name={item}} state=installed
     with_items:
-    - ganglia-monitor
-    - ganglia-webfrontend
-    - apache2
+      - ganglia-monitor
+      - ganglia-webfrontend
+      - apache2
 
   - name: start apache
     action: service name=apache2 state=started

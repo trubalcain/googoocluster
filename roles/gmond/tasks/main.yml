@@ -1,6 +1,6 @@
 ---
   - name: install ganglia
-  - apt: name=ganglia-monitor state=installed
+    apt: name=ganglia-monitor state=installed
   - name: start gmond
     action: service name=ganglia-monitor state=started
     ignore_errors: yes
