@@ -9,8 +9,8 @@
     notify:
     - restart ntp
 
-  - name: /home is in fstab
+  - name: /mnt/nfs is in fstab
     action: "mount name=/mnt/nfs src=googoocluster:/export/clusterfs fstype=nfs state=present"
-  - name: /home is mounted
+  - name: /mnt/nfs is mounted
     action: "mount name=/mnt/nfs src=googoocluster:/export/clusterfs fstype=nfs state=mounted"
 

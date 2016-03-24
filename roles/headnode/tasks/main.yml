@@ -1,6 +1,6 @@
 ---
   - name: install headnode packages from apt
-    action: apt pkg={{item}} state=installed
+  - apt: name={{item}} state=installed
     with_items:
     - git
     - screen
