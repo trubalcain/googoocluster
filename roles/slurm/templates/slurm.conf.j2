@@ -9,7 +9,7 @@ ControlAddr=192.168.28.1
 # 
 AuthType=auth/munge
 CacheGroups=0
-#CheckpointType=checkpoint/none 
+CheckpointType=checkpoint/none 
 CryptoType=crypto/munge
 #DisableRootJobs=NO 
 #EnforcePartLimits=NO 
@@ -20,13 +20,13 @@ CryptoType=crypto/munge
 #GresTypes= 
 #GroupUpdateForce=0 
 #GroupUpdateTime=600 
-JobCheckpointDir=/var/slurm/checkpoint 
+JobCheckpointDir=/var/run/slurm-llnl/checkpoint 
 #JobCredentialPrivateKey=
 #JobCredentialPublicCertificate=
 #JobFileAppend=0 
 #JobRequeue=1 
 #JobSubmitPlugins=1 
-KillOnBadExit=0 
+KillOnBadExit=1
 #Licenses=foo*4,bar 
 #MailProg=/bin/mail 
 #MaxJobCount=5000 
@@ -45,16 +45,16 @@ ProctrackType=proctrack/pgid
 #PropagateResourceLimitsExcept= 
 ReturnToService=1
 #SallocDefaultCommand= 
-SlurmctldPidFile=/var/run/slurmctld.pid
+SlurmctldPidFile=/var/run/slurm-llnl/slurmctld.pid
 SlurmctldPort=6817
-SlurmdPidFile=/var/run/slurmd.pid
+SlurmdPidFile=/var/run/slurm-llnl/slurmd.pid
 SlurmdPort=6818
-SlurmdSpoolDir=/tmp/slurmd
+SlurmdSpoolDir=/var/run/slurmd-llnl
 SlurmUser=slurm
 #SlurmdUser=root 
 #SrunEpilog=
 #SrunProlog=
-StateSaveLocation=/var/slurm
+StateSaveLocation=/var/run/slurm-llnl
 SwitchType=switch/none
 #TaskEpilog=
 TaskPlugin=task/none
@@ -154,5 +154,5 @@ SlurmdLogFile=/var/log/slurm-llnl/slurmd.log
 # 
 # 
 # COMPUTE NODES 
-NodeName=rpi[0-4] CPUs=1 State=UNKNOWN 
+NodeName=rpi[0-4] CPUs=4 CoresPerSocket=4 State=UNKNOWN 
 PartitionName=raspberry Nodes=rpi[0-4] Default=YES MaxTime=INFINITE State=UP
