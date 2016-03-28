@@ -10,6 +10,7 @@
       - dnsutils
       - nfs-kernel-server
       - nfs-common
+	  - apache2
 
   - name: install ansible
     action: pip name=ansible state=latest 
