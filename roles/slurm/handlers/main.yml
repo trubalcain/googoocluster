@@ -1,5 +1,5 @@
 ---
     - name: restart munge
-      action: service name=munge state=restarted
-    - name: restart slurm
-      action: service name=slurm-llnl state=restarted
+      shell: /usr/sbin/service munge restart
+    - name: restart slurmd
+      shell: /usr/sbin/service slurmd stop ; /usr/sbin/service slurmd startclean

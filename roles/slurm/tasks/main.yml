@@ -29,7 +29,7 @@
   - name: slurm is configured
     action: template src=slurm.conf.j2 dest=/etc/slurm-llnl/slurm.conf owner=slurm
     notify:
-    - restart slurmctld
+    - restart slurmd
 
-  - name: slurm is started
-    action: service name=slurmctld state=started
+  - name: slurmd is started
+    action: service name=slurmd state=started
