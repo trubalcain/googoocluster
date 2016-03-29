@@ -33,3 +33,4 @@
 
   - name: slurmd is started
     action: service name=slurmd state=started
+    ignore_errors: yes
