@@ -1,6 +1,10 @@
 ---
   - name: install ganglia
     apt: name=ganglia-monitor state=installed
+
+  - name: configure gmond
+    action: copy src=gmond.conf dest=/etc/ganglia/gmond.conf
+
   - name: start gmond
     action: service name=ganglia-monitor state=started
     ignore_errors: yes

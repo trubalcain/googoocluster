@@ -12,7 +12,10 @@
     action: template src=ganglia.conf.j2 dest=/etc/apache2/conf-available/ganglia.conf
     notify:
     - restart apache2
-
+	
+  - name: configure ganglia
+    action: copy src=gmetad.conf dest=/etc/ganglia/gmetad.conf
+	
   - name: start gmond
     action: service name=ganglia-monitor state=started
     ignore_errors: yes
