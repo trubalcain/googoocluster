@@ -1,3 +1,3 @@
 ---
 - name: restart apache2
-  action: service name=apache2 state=restarted
+  shell: /usr/sbin/a2enconf ganglia ; /usr/sbin/service apache2 restart
